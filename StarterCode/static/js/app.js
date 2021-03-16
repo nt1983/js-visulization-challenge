@@ -1,3 +1,11 @@
+function Demographic(Option){
+  d3.json("../data/samples.json").then((data) =>{
+    metadata=data.metadata;
+    var filterdata=metadata.filter(Object)
+
+  });
+
+}
 
 function DrawPlot(Option) {
   d3.json("../data/samples.json").then((data) =>{
@@ -19,7 +27,27 @@ function DrawPlot(Option) {
     var data=[trace1];
     var layout={title: "Top 10 OTU for Test Subject ID: "+ Option};
     Plotly.newPlot("bar", data, layout);
-  
+
+    //Bubble Chart
+    var trace2={
+      x: otu_ids,
+      y: sample_values,
+      text: otu_labels,
+      mode: 'markers',
+      marker: {
+        color: otu_ids,
+        colorscale: "Viridis",
+        size: sample_values
+      }
+    };
+    var layout2={
+      title: "Bacteria size per sample",
+      xaxis: { title: "OTU ID" + Option },
+      showlegend: false,
+    };
+    var data=[trace2];
+    Plotly.newPlot("bubble", data, layout2);
+
 
   });
 }
@@ -34,12 +62,14 @@ function init() {
         });
         const FirstOption=SampleName[0];
         DrawPlot(FirstOption);
+        Demographic(FirstOption);
 
     });    
 }
         
-function optionChanged(Option){
-  DrawPlot(Option);
+function optionChanged(Opt){
+  DrawPlot(Opt);
+  Demographic(Opt);
 }
 
 init();
