@@ -1,7 +1,13 @@
 function Demographic(Option){
+  DemoInfo=d3.select("#sample-metadata");
   d3.json("../data/samples.json").then((data) =>{
-    metadata=data.metadata;
-    var filterdata=metadata.filter(Object)
+    var meta=data.metadata;
+    var filterdata=meta.filter(item => item.id== Option)[0];
+    console.log(filterdata);
+    DemoInfo.html("");
+    Object.entries(filterdata).forEach(([key,value])=> {
+      DemoInfo.append("option").text(`${key}: ${value}`);
+    });
 
   });
 
@@ -10,7 +16,7 @@ function Demographic(Option){
 function DrawPlot(Option) {
   d3.json("../data/samples.json").then((data) =>{
     var samples=data.samples;
-    var filterdata = samples.filter(object => object.id.toString() === Option)[0];
+    var filterdata = samples.filter(item => item.id.toString() === Option)[0];
     console.log(filterdata);
     var sample_values=filterdata.sample_values;
     var otu_ids=filterdata.otu_ids;
