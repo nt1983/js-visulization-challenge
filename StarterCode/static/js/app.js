@@ -8,6 +8,41 @@ function Demographic(Option){
     Object.entries(filterdata).forEach(([key,value])=> {
       DemoInfo.append("option").text(`${key}: ${value}`);
     });
+    console.log(filterdata.wfreq);
+
+    //Bonus: Gaug Chart
+    var data3 = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: filterdata.wfreq,
+        title: { text: "Belly Button Weekly Washing Frequencyeed" },
+        type: "indicator",
+        mode: "gauge+number",
+        gauge: { 
+          borderwidth:0,
+          visible:true,
+          axis: { range: [null,9] },
+          //line: {color: "black", width: 4},
+          steps:[
+            {range:[0,1], color:"F7FFDC"},
+            {range:[1,2], color:"D9FFBF"},
+            {range:[2,3], color:"BDFFA4"},
+            {range:[3,4], color:"A0E989"},
+            {range:[4,5], color:"85CC6F"},
+            {range:[5,6], color:"6AB155"},
+            {range:[6,7], color:"4F963C"},
+            {range:[7,8], color:"337B24"},
+            {range:[8,9], color:"136207"}
+          ],
+          
+        }
+      }
+    ];
+    
+    var layout = { width: 500, height: 400, margin: { t: 3, b: 3 } };
+    Plotly.newPlot('gauge', data3, layout);
+
+
 
   });
 
