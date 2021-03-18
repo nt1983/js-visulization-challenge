@@ -19,7 +19,7 @@ function Demographic(Option){
         type: "indicator",
         mode: "gauge+number",
         gauge: { 
-          bar: { color: "blue" },
+          bar: { color: "purple" },
           borderwidth:0,
           visible:true,
           axis: { range: [null,9], visible:true},
