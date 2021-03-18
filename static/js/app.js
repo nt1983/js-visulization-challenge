@@ -1,6 +1,6 @@
 function Demographic(Option){
   DemoInfo=d3.select("#sample-metadata");
-  d3.json("../data/samples.json").then((data) =>{
+  d3.json("./data/samples.json").then((data) =>{
     var meta=data.metadata;
     var filterdata=meta.filter(item => item.id== Option)[0];
     console.log(filterdata);
@@ -50,7 +50,7 @@ function Demographic(Option){
 }
 
 function DrawPlot(Option) {
-  d3.json("../data/samples.json").then((data) =>{
+  d3.json("./data/samples.json").then((data) =>{
     var samples=data.samples;
     var filterdata = samples.filter(item => item.id.toString() === Option)[0];
     console.log(filterdata);
@@ -97,7 +97,7 @@ function DrawPlot(Option) {
 
 function init() {
     var dropdown=d3.select("#selDataset");
-    d3.json("../data/samples.json").then(function(data) {
+    d3.json("./data/samples.json").then(function(data) {
         var SampleName=data.names;
         SampleName.forEach((item) => {
           dropdown.append("option").text(item).property("value", item);
