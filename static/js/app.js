@@ -23,7 +23,6 @@ function Demographic(Option){
           borderwidth:0,
           visible:true,
           axis: { range: [null,9], visible:true},
-          //line: {color: "black", width: 4},
           steps:[
             {range:[0,1], color:"F7FFDC"},
             {range:[1,2], color:"D9FFBF"},
