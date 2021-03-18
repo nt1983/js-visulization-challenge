@@ -33,8 +33,12 @@ function Demographic(Option){
             {range:[6,7], color:"4F963C"},
             {range:[7,8], color:"337B24"},
             {range:[8,9], color:"136207"}
-            
           ],
+          threshold:{
+            line: {color:"red", width: 5},
+            thickness: 1,
+            value:filterdata.wfreq
+          }
           
         }
       }
