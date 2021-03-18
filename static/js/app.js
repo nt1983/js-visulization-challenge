@@ -18,10 +18,11 @@ function Demographic(Option){
         title: { text: "Belly Button Weekly Washing Frequencyeed" },
         type: "indicator",
         mode: "gauge+number",
+        ids:["1","2","3","4","5","6","7","8", "9"],
         gauge: { 
           borderwidth:0,
           visible:true,
-          axis: { range: [null,9] },
+          axis: { range: [null,9], visible:true},
           //line: {color: "black", width: 4},
           steps:[
             {range:[0,1], color:"F7FFDC"},
@@ -33,6 +34,7 @@ function Demographic(Option){
             {range:[6,7], color:"4F963C"},
             {range:[7,8], color:"337B24"},
             {range:[8,9], color:"136207"}
+            
           ],
           
         }
